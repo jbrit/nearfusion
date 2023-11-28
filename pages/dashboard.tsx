@@ -80,7 +80,13 @@ const Home: NextPage = () => {
               )} NEAR`}
         </div>
         <Tab.Group>
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "1rem",
+            }}
+          >
             <Tab.List>
               <Tab as={React.Fragment}>
                 {({ selected }) => (
@@ -136,7 +142,7 @@ const Home: NextPage = () => {
             style={{
               padding: "0 1rem",
               maxHeight: "20rem",
-              overflow: "auto"
+              overflow: "auto",
             }}
           >
             <Tab.Panels>
@@ -144,14 +150,33 @@ const Home: NextPage = () => {
                 {tokensLoading && "Loading Assets..."}
                 {tokensData?.data.inventory.fts &&
                   tokensData?.data.inventory.fts.map((ft) => (
-                    <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#eee", padding: '1rem', marginBottom: '1rem', cursor: 'pointer'}}>
+                    <div
+                      key={ft.contract}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        backgroundColor: "#eee",
+                        padding: "1rem",
+                        marginBottom: "1rem",
+                        cursor: "pointer",
+                      }}
+                    >
                       <Image
                         height={40}
                         width={40}
                         layout="intrinsic"
-                        src={ft.ft_metas.icon ?? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'}
+                        src={
+                          ft.ft_metas.icon ??
+                          "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        }
                       />
-                      <div style={{marginLeft: "2rem", fontWeight: 500, fontSize: "1.125rem"}}>
+                      <div
+                        style={{
+                          marginLeft: "2rem",
+                          fontWeight: 500,
+                          fontSize: "1.125rem",
+                        }}
+                      >
                         {ft.amount} {ft.ft_metas.symbol}
                       </div>
                     </div>
@@ -161,15 +186,34 @@ const Home: NextPage = () => {
                 {tokensLoading && "Loading Collectibles..."}
                 {tokensData?.data.inventory.nfts &&
                   tokensData?.data.inventory.nfts.map((nft) => (
-                    <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#eee", padding: '1rem', marginBottom: '1rem', cursor: 'pointer'}}>
+                    <div
+                      key={nft.contract}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        backgroundColor: "#eee",
+                        padding: "1rem",
+                        marginBottom: "1rem",
+                        cursor: "pointer",
+                      }}
+                    >
                       <Image
                         height={40}
                         width={40}
                         layout="intrinsic"
-                        src={nft.nft_meta.icon ?? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'}
+                        src={
+                          nft.nft_meta.icon ??
+                          "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        }
                       />
-                      <div style={{marginLeft: "2rem", fontWeight: 500, fontSize: "1.125rem"}}>
-                        {/* 1 {nft.contract} NFT {nft.nft_meta.symbol} */}
+                      <div
+                        style={{
+                          marginLeft: "2rem",
+                          fontWeight: 500,
+                          fontSize: "1.125rem",
+                        }}
+                      >
+                        1 {nft.contract} NFT {nft.nft_meta.symbol}
                       </div>
                     </div>
                   ))}
